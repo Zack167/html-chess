@@ -3,12 +3,7 @@
     margin: 0px;
     padding: 0px;
     font-family: Arial, sans-serif;
-    font-size: 25px;
-}
-
-.container{
-    width: 860px;
-    margin: 0 auto;
+    font-size: 17px;
 }
 
 .black-box{
@@ -25,48 +20,54 @@
 
 /*layout*/
 
-#chess-table{
-    width: 100%;
-    height: 860px;
-    background-image: url("../img/wood-texture.jpeg"); 
-    margin-top: 50px;
+#chess-table{    
+    width: 540px;
+    height: 540px;
+    background-image: url(../img/wood-texture.jpeg);
+    /* margin-top: 50px; */
     margin-bottom: 50px;
-
+    position: absolute;
+    top: 37px;
+    left: 50px;
 }
 
-.row{
+.row {
     width: 100%;
-    height: 100px;
-}
-
-.number-column{
-    float: left;
-    width: 60px;
-    height: 100%;
-    line-height: 100px;
-    text-align: center;
-    font-weight: 700;
-    color: #784f23;
-}
-
-#nineth-row{
     height: 60px;
 }
 
-.letters-row{
+.number-column {
     float: left;
-    height: 100%;
-    width: 100px;
+    width: 30px;
+    height: 60px;
     line-height: 60px;
     text-align: center;
     font-weight: 700;
     color: #784f23;
 }
 
-.box{
-    float: left;
-    height: 100%;
-    width: 100px;
+#nineth-row,
+#letters-top{
+    height: 30px;
 }
 
+.letters-row {
+    float: left;
+    height: 30px;
+    width: 60px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: 700;
+    color: #784f23;
+}
+
+.box {
+    float: left;
+    height: 100%;
+    width: 60px;
+}
+
+#letters-top .number-column{
+    height: 30px;
+}
 /* / layout */
