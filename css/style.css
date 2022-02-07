@@ -70,4 +70,11 @@
 #letters-top .number-column{
     height: 30px;
 }
+
+#letters-top .letters-row,
+.row .rotate-num{
+    transform: rotate(180deg);
+}
+
+
 /* / layout */
