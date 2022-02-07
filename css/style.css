@@ -1,0 +1,112 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+}
+
+.container{
+    width: 860px;
+    margin: 0 auto;
+}
+
+.black-box{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.white-box{
+    background-color: rgba(212, 188, 110, 0.377);
+}
+
+.extern-box{
+    background-color: rgb(255 251 233 / 56%)
+}
+
+/*layout*/
+
+#chess-table{
+    width: 100%;
+    height: 860px;
+    background-image: url("../img/wood-texture.jpeg"); 
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+.row{
+    width: 100%;
+    height: 100px;
+}
+
+.number-column{
+    float: left;
+    width: 60px;
+    height: 100%;
+    line-height: 100px;
+    text-align: center;
+    font-weight: 700;
+    color: #784f23;
+}
+
+#nineth-row{
+    height: 60px;
+}
+
+.letters-row{
+    float: left;
+    height: 100%;
+    width: 100px;
+    line-height: 60px;
+    text-align: center;
+    font-weight: 700;
+    color: #784f23;
+}
+
+.box{
+    float: left;
+    height: 100%;
+    width: 100px;
+}
+
+/* / layout */
+
+
+/* debug */
+
+.debug #chess-table{
+    border: 2px dashed red;
+    width: 100%;
+    height: 860px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+.debug .row{
+    border: 2px dashed;
+    width: 100%;
+    height: 100px;
+}
+
+.debug .number-column{
+    float: left;
+    border: 2px dashed blue;
+    width: 60px;
+    height: 100%;
+}
+
+.debug .letters-row{
+    border: 2px dashed green;
+    float: left;
+    height: 100%;
+    width: 100px;
+}
+
+.debug .box{
+    float: left;
+    border: 2px dashed violet;
+    height: 100%;
+    width: 100px;
+}
+/* / debug */ 
