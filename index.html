@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Chess table</title>
+</head>
+
+<body>
+    <div>
+        <div id="chess-table">
+            <div class="row extern-box" id="letters-top">
+                <div class="number-column"></div>
+                <div class="letters-row">A</div>
+                <div class="letters-row">B</div>
+                <div class="letters-row">C</div>
+                <div class="letters-row">D</div>
+                <div class="letters-row">E</div>
+                <div class="letters-row">F</div>
+                <div class="letters-row">G</div>
+                <div class="letters-row">H</div>
+            </div>
+            <div class="row" id="first-row">
+                <div class="number-column extern-box number-8">8</div>
+                <div id="A8" class="box white-box"></div>
+                <div id="B8" class="box black-box"></div>
+                <div id="C8" class="box white-box"></div>
+                <div id="D8" class="box black-box"></div>
+                <div id="E8" class="box white-box"></div>
+                <div id="F8" class="box black-box"></div>
+                <div id="G8" class="box white-box"></div>
+                <div id="H8" class="box black-box"></div>
+                <div class="number-column extern-box rotate-num">8</div>
+            </div>
+            <div class="row" id="second-row">
+                <div id="number-7" class="number-column extern-box">7</div>
+                <div id="A7" class="box black-box"></div>
+                <div id="B7" class="box white-box"></div>
+                <div id="C7" class="box black-box"></div>
+                <div id="D7" class="box white-box"></div>
+                <div id="E7" class="box black-box"></div>
+                <div id="F7" class="box white-box"></div>
+                <div id="G7" class="box black-box"></div>
+                <div id="H7" class="box white-box"></div>
+                <div class="number-column extern-box rotate-num">7</div>
+            </div>
+            <div class="row" id="third-row">
+                <div id="number-6" class="number-column extern-box">6</div>
+                <div id="A6" class="box white-box"></div>
+                <div id="B6" class="box black-box"></div>
+                <div id="C6" class="box white-box"></div>
+                <div id="D6" class="box black-box"></div>
+                <div id="E6" class="box white-box"></div>
+                <div id="F6" class="box black-box"></div>
+                <div id="G6" class="box white-box"></div>
+                <div id="H6" class="box black-box"></div>
+                <div class="number-column extern-box rotate-num">6</div>
+            </div>
+            <div class="row" id="fourth-row">
+                <div id="number-5" class="number-column extern-box">5</div>
+                <div id="A5" class="box black-box"></div>
+                <div id="B5" class="box white-box"></div>
+                <div id="C5" class="box black-box"></div>
+                <div id="D5" class="box white-box"></div>
+                <div id="E5" class="box black-box"></div>
+                <div id="F5" class="box white-box"></div>
+                <div id="G5" class="box black-box"></div>
+                <div id="H5" class="box white-box"></div>
+                <div class="number-column extern-box rotate-num">5</div>
+            </div>
+            <div class="row" id="fifth-row">
+                <div id="number-4" class="number-column extern-box">4</div>
+                <div id="A4" class="box white-box"></div>
+                <div id="B4" class="box black-box"></div>
+                <div id="C4" class="box white-box"></div>
+                <div id="D4" class="box black-box"></div>
+                <div id="E4" class="box white-box"></div>
+                <div id="F4" class="box black-box"></div>
+                <div id="G4" class="box white-box"></div>
+                <div id="H4" class="box black-box"></div>
+                <div class="number-column extern-box rotate-num">4</div>
+            </div>
+            <div class="row" id="sixth-row">
+                <div id="number-3" class="number-column extern-box">3</div>
+                <div id="A3" class="box black-box"></div>
+                <div id="B3" class="box white-box"></div>
+                <div id="C3" class="box black-box"></div>
+                <div id="D3" class="box white-box"></div>
+                <div id="E3" class="box black-box"></div>
+                <div id="F3" class="box white-box"></div>
+                <div id="G3" class="box black-box"></div>
+                <div id="H3" class="box white-box"></div>
+                <div class="number-column extern-box rotate-num">3</div>
+            </div>
+            <div class="row" id="seventh-row">
+                <div id="number-2" class="number-column extern-box">2</div>
+                <div id="A2" class="box white-box"></div>
+                <div id="B2" class="box black-box"></div>
+                <div id="C2" class="box white-box"></div>
+                <div id="D2" class="box black-box"></div>
+                <div id="E2" class="box white-box"></div>
+                <div id="F2" class="box black-box"></div>
+                <div id="G2" class="box white-box"></div>
+                <div id="H2" class="box black-box"></div>
+                <div class="number-column extern-box rotate-num">2</div>
+            </div>
+            <div class="row" id="eighth-row">
+                <div id="number-1" class="number-column extern-box">1</div>
+                <div id="A1" class="box black-box"></div>
+                <div id="B1" class="box white-box"></div>
+                <div id="C1" class="box black-box"></div>
+                <div id="D1" class="box white-box"></div>
+                <div id="E1" class="box black-box"></div>
+                <div id="F1" class="box white-box"></div>
+                <div id="G1" class="box black-box"></div>
+                <div id="H1" class="box white-box"></div>
+                <div class="number-column extern-box rotate-num">1</div>
+            </div>
+            <div class="row extern-box" id="nineth-row">
+                <div class="number-column"></div>
+                <div class="letters-row">A</div>
+                <div class="letters-row">B</div>
+                <div class="letters-row">C</div>
+                <div class="letters-row">D</div>
+                <div class="letters-row">E</div>
+                <div class="letters-row">F</div>
+                <div class="letters-row">G</div>
+                <div class="letters-row">H</div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+}
+
+.black-box{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.white-box{
+    background-color: rgba(212, 188, 110, 0.377);
+}
+
+.extern-box{
+    background-color: rgb(255 251 233 / 56%)
+}
+
+/*layout*/
+
+#chess-table{    
+    width: 540px;
+    height: 540px;
+    background-image: url(../img/wood-texture.jpeg);
+    /* margin-top: 50px; */
+    margin-bottom: 50px;
+    position: absolute;
+    top: 37px;
+    left: 50px;
+}
+
+.row {
+    width: 100%;
+    height: 60px;
+}
+
+.number-column {
+    float: left;
+    width: 30px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-weight: 700;
+    color: #784f23;
+}
+
+#nineth-row,
+#letters-top{
+    height: 30px;
+}
+
+.letters-row {
+    float: left;
+    height: 30px;
+    width: 60px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: 700;
+    color: #784f23;
+}
+
+.box {
+    float: left;
+    height: 100%;
+    width: 60px;
+}
+
+#letters-top .number-column{
+    height: 30px;
+}
+
+#letters-top .letters-row,
+.row .rotate-num{
+    transform: rotate(180deg);
+}
+
+
+/* / layout */
