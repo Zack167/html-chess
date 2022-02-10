@@ -58,9 +58,7 @@ function render(board) {
     var origin = document.getElementById("A1");
 
     board.forEach( function(box, idBox) {
-        console.log(idBox + " " + box.column + " " + box.row);
-        console.log(box.pawn !== null);
-        if (box.pawn !== null) {
+        if (box.pawn !== null) {    
             var icon = document.createElement("img");
             icon.src = box.pawn.imageURI;
             icon.width = BOX_WIDTH;
@@ -68,8 +66,8 @@ function render(board) {
             icon.classList.add("icon");
             icon.id = "icon-" + box.pawn.id;
             icon.style.position = "absolute";
-            icon.style.bottom = (30 + (BOX_HEIGHT * box.row)) + "px";
-            icon.style.left = (30 + (BOX_WIDTH * box.column)) + "px";
+            icon.style.bottom = (25 + (BOX_HEIGHT * box.row)) + "px";
+            icon.style.left = (25 + (BOX_WIDTH * box.column)) + "px";
             origin.appendChild(icon);
         }
     })

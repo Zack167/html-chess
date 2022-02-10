@@ -21,8 +21,8 @@
 /*layout*/
 
 #chess-table{    
-    width: 540px;
-    height: 540px;
+    width: 530px;
+    height: 530px;
     background-image: url(../img/wood-texture.jpeg);
     /* margin-top: 50px; */
     margin-bottom: 50px;
@@ -42,7 +42,7 @@
 
 .number-column {
     float: left;
-    width: 30px;
+    width: 25px;
     height: 60px;
     line-height: 60px;
     text-align: center;
@@ -52,14 +52,14 @@
 
 #nineth-row,
 #letters-top{
-    height: 30px;
+    height: 25px;
 }
 
 .letters-row {
     float: left;
-    height: 30px;
+    height: 25px;
     width: 60px;
-    line-height: 30px;
+    line-height: 25px;
     text-align: center;
     font-weight: 700;
     color: #784f23;
@@ -72,12 +72,16 @@
 }
 
 #letters-top .number-column{
-    height: 30px;
+    height: 25px;
 }
 
 #letters-top .letters-row,
 .row .rotate-num{
     transform: rotate(180deg);
+}
+
+#last-number-column {
+    height: 25px;
 }
 
 
