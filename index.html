@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Chess table</title>
 </head>
 
-<body>
+<body onload="loadBoard();" >
     <div>
         <div id="chess-table">
             <div class="row extern-box" id="letters-top">
@@ -121,7 +122,7 @@
                 <div class="number-column extern-box rotate-num">1</div>
             </div>
             <div class="row extern-box" id="nineth-row">
-                <div class="number-column"></div>
+                <div id="last-number-column" class="number-column"></div>
                 <div class="letters-row">A</div>
                 <div class="letters-row">B</div>
                 <div class="letters-row">C</div>
