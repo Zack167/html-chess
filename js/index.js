@@ -66,6 +66,7 @@ class Pawn {
     }
 
     calculatePossibleBoxes = function() {
+        let possibleBoxes = [];
         console.log("Possible Directions for " + this.kind + " in " + this.box.getPosition());
         directionloop: for (var j = 0; j < this.directions.length; j += 1) {
             for (var i = 1; i <= this.maxOffset; i += 1) {
@@ -77,17 +78,18 @@ class Pawn {
                     let boxId = letters[position.xDir] + (position.yDir+1);
                     let box = board.get(boxId);
                     if (box.pawn === null) {
-                        console.log(boxId);
+                        possibleBoxes.push(boxId);
+                        //console.log(boxId);
                     } else if (box.pawn.color !== this.color) {
-                        console.log(boxId);
+                        possibleBoxes.push(boxId);
                         continue directionloop;
                     } else if (box.pawn.color === this.color) {
                         continue directionloop;
                     }
                 }
-                // let id = letters[position.yDir] + (position.xDir + 1);
             }
         }
+        return possibleBoxes;
     }
 }
 
@@ -108,6 +110,7 @@ class Player {
 }
 
 let board, players, pawnsInGame;
+let selectedPawn, turn;
 let letters = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
 const UP = new Direction(0, +1);
@@ -129,7 +132,7 @@ directions.set("horse", [
 const BOX_WIDTH = 60;
 const BOX_HEIGHT = 60;
 
-function render() {
+function renderBoardStatus() {
     var origin = document.getElementById("A1");
 
     while (origin.firstChild !== null) {
@@ -149,14 +152,66 @@ function render() {
             icon.style.left = (25 + (BOX_WIDTH * box.column)) + "px";
             icon.style.zIndex = 20;
             icon.onclick = function(event) {
-                let pawnId = this.id.substring("icon-".length, this.id.length);
+                if ((box.pawn.color === "white" && turn) || (box.pawn.color === "black" && !turn)) {
+                    let pawnId = this.id.substring("icon-".length, this.id.length);
                 console.log(pawnId);
                 let pawn = pawnsInGame.get(pawnId);
-                pawn.calculatePossibleBoxes();
-                //pawnsInGame.get
+                selectedPawn = pawn;
+                renderMovements();
+                }
             };
             origin.appendChild(icon);
         }
+    });
+}
+
+function renderMovements() {
+    renderBoardStatus();
+    var origin = document.getElementById("A1");
+    let possibleBoxes = selectedPawn.calculatePossibleBoxes();
+    console.log(possibleBoxes);
+
+    board.forEach( function(box, idBox) {
+        var possibleBox = document.createElement("img");
+        possibleBox.width = BOX_WIDTH;
+        possibleBox.height = BOX_HEIGHT;
+        possibleBox.classList.add("possibleBox");
+        possibleBox.id = "possibleBox-" + box.id;
+        possibleBox.style.position = "absolute";
+        possibleBox.style.bottom = (25 + (BOX_HEIGHT * box.row)) + "px";
+        possibleBox.style.left = (25 + (BOX_WIDTH * box.column)) + "px";
+        possibleBox.style.zIndex = 30;
+
+        if (possibleBoxes.indexOf(box.id) !== -1) {
+            console.log(box.id);
+            possibleBox.width = BOX_WIDTH * 0.44;
+            possibleBox.height = BOX_HEIGHT * 0.44;
+            possibleBox.style.bottom = (25 + (BOX_HEIGHT * box.row) + (BOX_HEIGHT * 0.28)) + "px";
+            possibleBox.style.left = (25 + (BOX_WIDTH * box.column) + (BOX_WIDTH * 0.28)) + "px";
+            possibleBox.src = "img/green-circle.png";
+            possibleBox.onclick = function(event) {
+                let id = this.id;
+                let possibleBoxId = id.substring(id.indexOf("-") + 1);
+                console.log("move " + selectedPawn.id + " to " + possibleBoxId);
+                selectedPawn.move(board.get(possibleBoxId));
+                turn = !turn;
+                renderBoardStatus();
+            }
+        } else if (box.pawn !== null && box.pawn === selectedPawn) {
+            possibleBox.style.backgroundColor = "white";
+            possibleBox.style.opacity = 0.25;
+            possibleBox.onclick = function(event) {
+                selectedPawn = null;
+                renderBoardStatus();
+            }
+        } else {
+            possibleBox.onclick = function(event) {
+                selectedPawn = null;
+                renderBoardStatus();
+            }
+        }
+
+        origin.appendChild(possibleBox);
     });
 }
 
@@ -164,6 +219,7 @@ function loadBoard() {
     board = new Map();
     pawnsInGame = new Map();
     players = new Map();
+    turn = true;
     players.set("white", new Player("white"));
     players.set("black", new Player("black"));
 
@@ -205,7 +261,7 @@ function loadBoard() {
         }
     }
 
-    render();
+    renderBoardStatus();
 }
 
 function reset() {
